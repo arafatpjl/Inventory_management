@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Web_InventoryModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Web_InventoryEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Company_Information" EntityType="Web_InventoryModel.Company_Information" />
+    <EntitySet Name="Iteam_Order_Info" EntityType="Web_InventoryModel.Iteam_Order_Info" />
+    <EntitySet Name="Iteam_Requiition_Info" EntityType="Web_InventoryModel.Iteam_Requiition_Info" />
+    <EntitySet Name="new_Country" EntityType="Web_InventoryModel.new_Country" />
+    <EntitySet Name="new_Currency" EntityType="Web_InventoryModel.new_Currency" />
+    <EntitySet Name="new_Customer_Name" EntityType="Web_InventoryModel.new_Customer_Name" />
+    <EntitySet Name="new_Department" EntityType="Web_InventoryModel.new_Department" />
+    <EntitySet Name="new_SubCategory_Name" EntityType="Web_InventoryModel.new_SubCategory_Name" />
+    <EntitySet Name="new_Unit_Name" EntityType="Web_InventoryModel.new_Unit_Name" />
+    <EntitySet Name="Sys_User_Name" EntityType="Web_InventoryModel.Sys_User_Name" />
+    <EntitySet Name="Sys_User_NameUp" EntityType="Web_InventoryModel.Sys_User_NameUp" />
+    <EntitySet Name="sysdiagrams" EntityType="Web_InventoryModel.sysdiagram" />
+    <EntitySet Name="tblMenus" EntityType="Web_InventoryModel.tblMenu" />
+    <EntitySet Name="tblMenuWins" EntityType="Web_InventoryModel.tblMenuWin" />
+    <EntitySet Name="tblMenuWinBak2" EntityType="Web_InventoryModel.tblMenuWinBak2" />
+    <EntitySet Name="tblRoles" EntityType="Web_InventoryModel.tblRole" />
+    <EntitySet Name="new_Supplier_Name" EntityType="Web_InventoryModel.new_Supplier_Name" />
+    <FunctionImport Name="prc_Supplier_Info" ReturnType="Collection(Web_InventoryModel.prc_Supplier_Info_Result)" />
+    <EntitySet Name="new_Category_Name" EntityType="Web_InventoryModel.new_Category_Name" />
+    <FunctionImport Name="prc_Category_Info" ReturnType="Collection(Web_InventoryModel.prc_Category_Info_Result)" />
+    <EntitySet Name="new_Item_Name" EntityType="Web_InventoryModel.new_Item_Name" />
+    <FunctionImport Name="prc_IteamName_Info" ReturnType="Collection(Web_InventoryModel.prc_IteamName_Info_Result)" />
+    <EntitySet Name="new_ProductModel_Name" EntityType="Web_InventoryModel.new_ProductModel_Name" />
+    <FunctionImport Name="prc_ProductModel_Info" ReturnType="Collection(Web_InventoryModel.prc_ProductModel_Info_Result)" />
+    <EntitySet Name="Iteam_Information" EntityType="Web_InventoryModel.Iteam_Information" />
+    <FunctionImport Name="prc_Iteam_Information" ReturnType="Collection(Web_InventoryModel.prc_Iteam_Information_Result)" />
+    <EntitySet Name="Invoice_Main" EntityType="Web_InventoryModel.Invoice_Main" />
+    <FunctionImport Name="prc_Product_details_Info" ReturnType="Collection(Web_InventoryModel.prc_Product_details_Info_Result)">
+      <Parameter Name="ItemID" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Sell_Iteam_Customer" EntityType="Web_InventoryModel.Sell_Iteam_Customer" />
+    <FunctionImport Name="prc_Iteam_Information2" />
+    <FunctionImport Name="prc_Max_InvoiceID" />
+    <EntitySet Name="Sell_Iteam_Main" EntityType="Web_InventoryModel.Sell_Iteam_Main" />
+    <EntitySet Name="Sell_Iteam_Sub" EntityType="Web_InventoryModel.Sell_Iteam_Sub" />
+  </EntityContainer>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="CompName" />
+      <PropertyRef Name="CompAdd" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="CompanyID" Type="Byte" Nullable="false" />
+    <Property Name="CompName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CompAdd" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CompTIN" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FaxNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="WebAdd" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ImageLocation" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ServerName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DBName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DBPrefix" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ReportPath" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ComShortName" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="Sign" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Iteam_Order_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SlNo" />
+      <PropertyRef Name="RequisitionQty" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="TotalPrice" />
+      <PropertyRef Name="Currency" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ReqNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SlNo" Type="Int32" Nullable="false" />
+    <Property Name="IteamID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="iteamCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="RequisitionQty" Type="Double" Nullable="false" />
+    <Property Name="Unit" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="UnitPrice" Type="Double" Nullable="false" />
+    <Property Name="TotalPrice" Type="Double" Nullable="false" />
+    <Property Name="Currency" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Remarks" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PCName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+    <Property Name="EntryTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Iteam_Requiition_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SlNo" />
+      <PropertyRef Name="RequisitionQty" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="CurrStock" />
+      <PropertyRef Name="DeleteRow" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="SlNo" Type="Int32" Nullable="false" />
+    <Property Name="PRNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ReqNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IteamID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="iteamCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="RequisitionQty" Type="Double" Nullable="false" />
+    <Property Name="Unit" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CurrStock" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="RequisitionDate" Type="DateTime" Precision="0" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Remarks" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="DeleteRow" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PCName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+    <Property Name="EntryTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="new_Country">
+    <Key>
+      <PropertyRef Name="CntrID" />
+      <PropertyRef Name="CntrName" />
+    </Key>
+    <Property Name="CntrID" Type="Int16" Nullable="false" />
+    <Property Name="CntrName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="new_Currency">
+    <Key>
+      <PropertyRef Name="CurrencyName" />
+    </Key>
+    <Property Name="CurrencyName" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="new_Customer_Name">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="code" />
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CustName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Remarks" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Sign" Type="Byte" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PCName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+    <Property Name="EntryTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="new_Department">
+    <Key>
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="DeptID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="DeptShortName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Sign" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_SubCategory_Name">
+    <Key>
+      <PropertyRef Name="SubcategoryID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="SubcategoryID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="SubShortName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Sign" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_Unit_Name">
+    <Key>
+      <PropertyRef Name="UnitName" />
+    </Key>
+    <Property Name="UnitName" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Sys_User_Name">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPWord" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="mleft" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="CompID" Type="Int16" />
+    <Property Name="UserID" Type="Int16" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="UserPWord" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserFullName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="Designation" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Department" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Menu_id" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Control_id" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Byte" Nullable="false" />
+    <Property Name="mleft" Type="Byte" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sys_User_NameUp">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPWord" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="mleft" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="CompID" Type="Int16" />
+    <Property Name="UserID" Type="Int16" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="UserPWord" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="EmpCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserFullName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="Designation" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Department" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Menu_id" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Control_id" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Byte" Nullable="false" />
+    <Property Name="mleft" Type="Byte" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Main_Menu_Id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_URL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Icon" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="YsnActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblMenuWin">
+    <Key>
+      <PropertyRef Name="YsnActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="CompID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Form_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FrmMenu_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FrmForm_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="YsnActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblMenuWinBak2">
+    <Key>
+      <PropertyRef Name="YsnActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="CompID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="Menu_Id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Form_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FrmMenu_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FrmForm_Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="YsnActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Menus" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="YSNActive" Type="Boolean" />
+    <Property Name="Created_date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Updated_date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_by" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="new_Supplier_Name">
+    <Key>
+      <PropertyRef Name="SuppID" />
+    </Key>
+    <Property Type="Int32" Name="SuppID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SuppName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contact" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remarks" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <ComplexType Name="prc_Supplier_Info_Result">
+    <Property Type="Int32" Name="SuppID" Nullable="false" />
+    <Property Type="String" Name="SuppName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="200" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PCName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="EntryTime" Nullable="true" Precision="16" />
+  </ComplexType>
+  <EntityType Name="new_Category_Name">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int16" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CategoryName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="prc_Category_Info_Result">
+    <Property Type="Int16" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="new_Item_Name">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Type="Int16" Name="itemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="itemName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <ComplexType Name="prc_IteamName_Info_Result">
+    <Property Type="Int16" Name="itemID" Nullable="false" />
+    <Property Type="String" Name="itemName" Nullable="true" MaxLength="200" />
+    <Property Type="Int16" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="new_ProductModel_Name">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Type="Int32" Name="ModelID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ModelName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ItemID" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <ComplexType Name="prc_ProductModel_Info_Result">
+    <Property Type="Int32" Name="ModelID" Nullable="false" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ItemID" Nullable="true" MaxLength="200" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PCName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="EntryTime" Nullable="true" Precision="16" />
+  </ComplexType>
+  <EntityType Name="Iteam_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ItemID" Nullable="false" />
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="Int32" Name="ModelID" Nullable="false" />
+    <Property Type="Double" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="BuyPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="TotalCostPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="SellPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="TotalSellPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Invoice" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="InvoiceDate" Precision="3" />
+    <Property Type="Int32" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <ComplexType Name="prc_Iteam_Information_Result">
+    <Property Type="String" Name="itemName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SuppName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="200" />
+    <Property Type="Double" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="BuyPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="SellPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="TotalCostPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="TotalSellPrice" Nullable="false" Precision="19" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Invoice" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="sign" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Invoice_Main">
+    <Key>
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="InvoiceDate" />
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Type="Int32" Name="InvID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceNo" Nullable="false" />
+    <Property Type="Int32" Name="InvoiceDate" Nullable="false" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="Int32" Name="Sign" Nullable="false" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <ComplexType Name="prc_Product_details_Info_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="ItemID" Nullable="false" />
+    <Property Type="String" Name="itemName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="SuppName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="ModelID" Nullable="false" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="200" />
+    <Property Type="Double" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="BuyPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="SellPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="TotalCostPrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="TotalSellPrice" Nullable="false" Precision="19" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Invoice" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="Sell_Iteam_Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="CustomerName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Sell_Iteam_Main">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="InvoiceNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="false" Precision="0" />
+    <Property Type="Double" Name="TotalPrice" Nullable="false" />
+    <Property Type="Double" Name="FinalPrice" Nullable="false" />
+    <Property Type="Double" Name="TotalDiscount" Nullable="false" />
+    <Property Type="Double" Name="TotalVat" Nullable="false" />
+    <Property Type="Double" Name="Paid" Nullable="false" />
+    <Property Type="Double" Name="Due" Nullable="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Sell_Iteam_Sub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="Int32" Name="IteamID" Nullable="false" />
+    <Property Type="Double" Name="Quantity" Nullable="false" />
+    <Property Type="String" Name="Unit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="UnitPrice" Nullable="false" />
+    <Property Type="Double" Name="TotalUnitPrice" Nullable="false" />
+    <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EntryDate" Precision="0" />
+    <Property Type="DateTime" Name="EntryTime" Precision="0" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Web_InventoryModelStoreContainer" CdmEntityContainer="Web_InventoryEntities">
+    <EntitySetMapping Name="Company_Information">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Company_Information">
+        <MappingFragment StoreEntitySet="Company_Information">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="CompAdd" ColumnName="CompAdd" />
+          <ScalarProperty Name="CompTIN" ColumnName="CompTIN" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WebAdd" ColumnName="WebAdd" />
+          <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+          <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+          <ScalarProperty Name="DBName" ColumnName="DBName" />
+          <ScalarProperty Name="DBPrefix" ColumnName="DBPrefix" />
+          <ScalarProperty Name="ReportPath" ColumnName="ReportPath" />
+          <ScalarProperty Name="ComShortName" ColumnName="ComShortName" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Iteam_Order_Info">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Iteam_Order_Info">
+        <MappingFragment StoreEntitySet="Iteam_Order_Info">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="ReqNo" ColumnName="ReqNo" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="IteamID" ColumnName="IteamID" />
+          <ScalarProperty Name="iteamCode" ColumnName="iteamCode" />
+          <ScalarProperty Name="RequisitionQty" ColumnName="RequisitionQty" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Iteam_Requiition_Info">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Iteam_Requiition_Info">
+        <MappingFragment StoreEntitySet="Iteam_Requiition_Info">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="PRNo" ColumnName="PRNo" />
+          <ScalarProperty Name="ReqNo" ColumnName="ReqNo" />
+          <ScalarProperty Name="IteamID" ColumnName="IteamID" />
+          <ScalarProperty Name="iteamCode" ColumnName="iteamCode" />
+          <ScalarProperty Name="RequisitionQty" ColumnName="RequisitionQty" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="CurrStock" ColumnName="CurrStock" />
+          <ScalarProperty Name="RequisitionDate" ColumnName="RequisitionDate" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Country">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Country">
+        <MappingFragment StoreEntitySet="new_Country">
+          <ScalarProperty Name="CntrID" ColumnName="CntrID" />
+          <ScalarProperty Name="CntrName" ColumnName="CntrName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Currency">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Currency">
+        <MappingFragment StoreEntitySet="new_Currency">
+          <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Customer_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Customer_Name">
+        <MappingFragment StoreEntitySet="new_Customer_Name">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Department">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Department">
+        <MappingFragment StoreEntitySet="new_Department">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptShortName" ColumnName="DeptShortName" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_SubCategory_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_SubCategory_Name">
+        <MappingFragment StoreEntitySet="new_SubCategory_Name">
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="SubShortName" ColumnName="SubShortName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Unit_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Unit_Name">
+        <MappingFragment StoreEntitySet="new_Unit_Name">
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Sys_User_Name">
+        <MappingFragment StoreEntitySet="Sys_User_Name">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPWord" ColumnName="UserPWord" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Menu_id" ColumnName="Menu_id" />
+          <ScalarProperty Name="Control_id" ColumnName="Control_id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="mleft" ColumnName="mleft" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User_NameUp">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Sys_User_NameUp">
+        <MappingFragment StoreEntitySet="Sys_User_NameUp">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPWord" ColumnName="UserPWord" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Menu_id" ColumnName="Menu_id" />
+          <ScalarProperty Name="Control_id" ColumnName="Control_id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="mleft" ColumnName="mleft" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Web_InventoryModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMenus">
+      <EntityTypeMapping TypeName="Web_InventoryModel.tblMenu">
+        <MappingFragment StoreEntitySet="tblMenu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Main_Menu_Id" ColumnName="Main_Menu_Id" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_URL" ColumnName="Menu_URL" />
+          <ScalarProperty Name="Menu_Icon" ColumnName="Menu_Icon" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMenuWins">
+      <EntityTypeMapping TypeName="Web_InventoryModel.tblMenuWin">
+        <MappingFragment StoreEntitySet="tblMenuWin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_Id" ColumnName="Menu Id" />
+          <ScalarProperty Name="Form_Name" ColumnName="Form_Name" />
+          <ScalarProperty Name="FrmMenu_Name" ColumnName="FrmMenu_Name" />
+          <ScalarProperty Name="FrmForm_Name" ColumnName="FrmForm_Name" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMenuWinBak2">
+      <EntityTypeMapping TypeName="Web_InventoryModel.tblMenuWinBak2">
+        <MappingFragment StoreEntitySet="tblMenuWinBak2">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_Id" ColumnName="Menu Id" />
+          <ScalarProperty Name="Form_Name" ColumnName="Form_Name" />
+          <ScalarProperty Name="FrmMenu_Name" ColumnName="FrmMenu_Name" />
+          <ScalarProperty Name="FrmForm_Name" ColumnName="FrmForm_Name" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoles">
+      <EntityTypeMapping TypeName="Web_InventoryModel.tblRole">
+        <MappingFragment StoreEntitySet="tblRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Menus" ColumnName="Menus" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="new_Supplier_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Supplier_Name">
+        <MappingFragment StoreEntitySet="new_Supplier_Name">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SuppName" ColumnName="SuppName" />
+          <ScalarProperty Name="SuppID" ColumnName="SuppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_Supplier_Info" FunctionName="Web_InventoryModel.Store.prc_Supplier_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_Supplier_Info_Result">
+          <ScalarProperty Name="SuppID" ColumnName="SuppID" />
+          <ScalarProperty Name="SuppName" ColumnName="SuppName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="new_Category_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Category_Name">
+        <MappingFragment StoreEntitySet="new_Category_Name">
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_Category_Info" FunctionName="Web_InventoryModel.Store.prc_Category_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_Category_Info_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="new_Item_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_Item_Name">
+        <MappingFragment StoreEntitySet="new_Item_Name">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_IteamName_Info" FunctionName="Web_InventoryModel.Store.prc_IteamName_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_IteamName_Info_Result">
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="new_ProductModel_Name">
+      <EntityTypeMapping TypeName="Web_InventoryModel.new_ProductModel_Name">
+        <MappingFragment StoreEntitySet="new_ProductModel_Name">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_ProductModel_Info" FunctionName="Web_InventoryModel.Store.prc_ProductModel_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_ProductModel_Info_Result">
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Iteam_Information">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Iteam_Information">
+        <MappingFragment StoreEntitySet="Iteam_Information">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TotalSellPrice" ColumnName="TotalSellPrice" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="TotalCostPrice" ColumnName="TotalCostPrice" />
+          <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_Iteam_Information" FunctionName="Web_InventoryModel.Store.prc_Iteam_Information">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_Iteam_Information_Result">
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="SuppName" ColumnName="SuppName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="TotalCostPrice" ColumnName="TotalCostPrice" />
+          <ScalarProperty Name="TotalSellPrice" ColumnName="TotalSellPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="sign" ColumnName="sign" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Invoice_Main">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Invoice_Main">
+        <MappingFragment StoreEntitySet="Invoice_Main">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_Product_details_Info" FunctionName="Web_InventoryModel.Store.prc_Product_details_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Web_InventoryModel.prc_Product_details_Info_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SuppName" ColumnName="SuppName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="TotalCostPrice" ColumnName="TotalCostPrice" />
+          <ScalarProperty Name="TotalSellPrice" ColumnName="TotalSellPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Sell_Iteam_Customer">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Sell_Iteam_Customer">
+        <MappingFragment StoreEntitySet="Sell_Iteam_Customer">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_Max_InvoiceID" FunctionName="Web_InventoryModel.Store.prc_Max_InvoiceID" />
+    <EntitySetMapping Name="Sell_Iteam_Main">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Sell_Iteam_Main">
+        <MappingFragment StoreEntitySet="Sell_Iteam_Main">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="TotalVat" ColumnName="TotalVat" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sell_Iteam_Sub">
+      <EntityTypeMapping TypeName="Web_InventoryModel.Sell_Iteam_Sub">
+        <MappingFragment StoreEntitySet="Sell_Iteam_Sub">
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PCName" ColumnName="PCName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TotalUnitPrice" ColumnName="TotalUnitPrice" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="IteamID" ColumnName="IteamID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

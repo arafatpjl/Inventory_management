@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Web_InventoryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Web_InventoryModelStoreContainer">
+    <EntitySet Name="Company_Information" EntityType="Web_InventoryModel.Store.Company_Information" store:Type="Tables" store:Schema="dbo" store:Name="Company_Information">
+      <DefiningQuery>SELECT 
+      [Company_Information].[CompanyID] AS [CompanyID], 
+      [Company_Information].[CompName] AS [CompName], 
+      [Company_Information].[CompAdd] AS [CompAdd], 
+      [Company_Information].[CompTIN] AS [CompTIN], 
+      [Company_Information].[PhoneNo] AS [PhoneNo], 
+      [Company_Information].[FaxNo] AS [FaxNo], 
+      [Company_Information].[Email] AS [Email], 
+      [Company_Information].[WebAdd] AS [WebAdd], 
+      [Company_Information].[ImageLocation] AS [ImageLocation], 
+      [Company_Information].[ServerName] AS [ServerName], 
+      [Company_Information].[DBName] AS [DBName], 
+      [Company_Information].[DBPrefix] AS [DBPrefix], 
+      [Company_Information].[ReportPath] AS [ReportPath], 
+      [Company_Information].[ComShortName] AS [ComShortName], 
+      [Company_Information].[Sign] AS [Sign]
+      FROM [dbo].[Company_Information] AS [Company_Information]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Invoice_Main" EntityType="Web_InventoryModel.Store.Invoice_Main" store:Type="Tables" store:Schema="dbo" store:Name="Invoice_Main">
+      <DefiningQuery>SELECT 
+      [Invoice_Main].[InvID] AS [InvID], 
+      [Invoice_Main].[InvoiceNo] AS [InvoiceNo], 
+      [Invoice_Main].[InvoiceDate] AS [InvoiceDate], 
+      [Invoice_Main].[CustomerID] AS [CustomerID], 
+      [Invoice_Main].[Sign] AS [Sign], 
+      [Invoice_Main].[PCName] AS [PCName], 
+      [Invoice_Main].[EntryDate] AS [EntryDate], 
+      [Invoice_Main].[EntryTime] AS [EntryTime]
+      FROM [dbo].[Invoice_Main] AS [Invoice_Main]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Iteam_Information" EntityType="Web_InventoryModel.Store.Iteam_Information" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Iteam_Order_Info" EntityType="Web_InventoryModel.Store.Iteam_Order_Info" store:Type="Tables" store:Schema="dbo" store:Name="Iteam_Order_Info">
+      <DefiningQuery>SELECT 
+      [Iteam_Order_Info].[ID] AS [ID], 
+      [Iteam_Order_Info].[code] AS [code], 
+      [Iteam_Order_Info].[ReqNo] AS [ReqNo], 
+      [Iteam_Order_Info].[SlNo] AS [SlNo], 
+      [Iteam_Order_Info].[IteamID] AS [IteamID], 
+      [Iteam_Order_Info].[iteamCode] AS [iteamCode], 
+      [Iteam_Order_Info].[RequisitionQty] AS [RequisitionQty], 
+      [Iteam_Order_Info].[Unit] AS [Unit], 
+      [Iteam_Order_Info].[UnitPrice] AS [UnitPrice], 
+      [Iteam_Order_Info].[TotalPrice] AS [TotalPrice], 
+      [Iteam_Order_Info].[Currency] AS [Currency], 
+      [Iteam_Order_Info].[DeliveryDate] AS [DeliveryDate], 
+      [Iteam_Order_Info].[Description] AS [Description], 
+      [Iteam_Order_Info].[Remarks] AS [Remarks], 
+      [Iteam_Order_Info].[UserID] AS [UserID], 
+      [Iteam_Order_Info].[PCName] AS [PCName], 
+      [Iteam_Order_Info].[EntryDate] AS [EntryDate], 
+      [Iteam_Order_Info].[EntryTime] AS [EntryTime]
+      FROM [dbo].[Iteam_Order_Info] AS [Iteam_Order_Info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Iteam_Requiition_Info" EntityType="Web_InventoryModel.Store.Iteam_Requiition_Info" store:Type="Tables" store:Schema="dbo" store:Name="Iteam_Requiition_Info">
+      <DefiningQuery>SELECT 
+      [Iteam_Requiition_Info].[ID] AS [ID], 
+      [Iteam_Requiition_Info].[code] AS [code], 
+      [Iteam_Requiition_Info].[SlNo] AS [SlNo], 
+      [Iteam_Requiition_Info].[PRNo] AS [PRNo], 
+      [Iteam_Requiition_Info].[ReqNo] AS [ReqNo], 
+      [Iteam_Requiition_Info].[IteamID] AS [IteamID], 
+      [Iteam_Requiition_Info].[iteamCode] AS [iteamCode], 
+      [Iteam_Requiition_Info].[RequisitionQty] AS [RequisitionQty], 
+      [Iteam_Requiition_Info].[Unit] AS [Unit], 
+      [Iteam_Requiition_Info].[CurrStock] AS [CurrStock], 
+      [Iteam_Requiition_Info].[RequisitionDate] AS [RequisitionDate], 
+      [Iteam_Requiition_Info].[DeliveryDate] AS [DeliveryDate], 
+      [Iteam_Requiition_Info].[Description] AS [Description], 
+      [Iteam_Requiition_Info].[Remarks] AS [Remarks], 
+      [Iteam_Requiition_Info].[DeleteRow] AS [DeleteRow], 
+      [Iteam_Requiition_Info].[UserID] AS [UserID], 
+      [Iteam_Requiition_Info].[PCName] AS [PCName], 
+      [Iteam_Requiition_Info].[EntryDate] AS [EntryDate], 
+      [Iteam_Requiition_Info].[EntryTime] AS [EntryTime]
+      FROM [dbo].[Iteam_Requiition_Info] AS [Iteam_Requiition_Info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Category_Name" EntityType="Web_InventoryModel.Store.new_Category_Name" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="new_Country" EntityType="Web_InventoryModel.Store.new_Country" store:Type="Tables" store:Schema="dbo" store:Name="new_Country">
+      <DefiningQuery>SELECT 
+      [new_Country].[CntrID] AS [CntrID], 
+      [new_Country].[CntrName] AS [CntrName]
+      FROM [dbo].[new_Country] AS [new_Country]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Currency" EntityType="Web_InventoryModel.Store.new_Currency" store:Type="Tables" store:Schema="dbo" store:Name="new_Currency">
+      <DefiningQuery>SELECT 
+      [new_Currency].[CurrencyName] AS [CurrencyName]
+      FROM [dbo].[new_Currency] AS [new_Currency]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Customer_Name" EntityType="Web_InventoryModel.Store.new_Customer_Name" store:Type="Tables" store:Schema="dbo" store:Name="new_Customer_Name">
+      <DefiningQuery>SELECT 
+      [new_Customer_Name].[ID] AS [ID], 
+      [new_Customer_Name].[CustID] AS [CustID], 
+      [new_Customer_Name].[CustName] AS [CustName], 
+      [new_Customer_Name].[Gender] AS [Gender], 
+      [new_Customer_Name].[code] AS [code], 
+      [new_Customer_Name].[CountryID] AS [CountryID], 
+      [new_Customer_Name].[Address] AS [Address], 
+      [new_Customer_Name].[Contact] AS [Contact], 
+      [new_Customer_Name].[Email] AS [Email], 
+      [new_Customer_Name].[Remarks] AS [Remarks], 
+      [new_Customer_Name].[Sign] AS [Sign], 
+      [new_Customer_Name].[UserID] AS [UserID], 
+      [new_Customer_Name].[PCName] AS [PCName], 
+      [new_Customer_Name].[EntryDate] AS [EntryDate], 
+      [new_Customer_Name].[EntryTime] AS [EntryTime]
+      FROM [dbo].[new_Customer_Name] AS [new_Customer_Name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Department" EntityType="Web_InventoryModel.Store.new_Department" store:Type="Tables" store:Schema="dbo" store:Name="new_Department">
+      <DefiningQuery>SELECT 
+      [new_Department].[DeptID] AS [DeptID], 
+      [new_Department].[DeptName] AS [DeptName], 
+      [new_Department].[DeptShortName] AS [DeptShortName], 
+      [new_Department].[Sign] AS [Sign]
+      FROM [dbo].[new_Department] AS [new_Department]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Item_Name" EntityType="Web_InventoryModel.Store.new_Item_Name" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="new_ProductModel_Name" EntityType="Web_InventoryModel.Store.new_ProductModel_Name" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="new_SubCategory_Name" EntityType="Web_InventoryModel.Store.new_SubCategory_Name" store:Type="Tables" store:Schema="dbo" store:Name="new_SubCategory_Name">
+      <DefiningQuery>SELECT 
+      [new_SubCategory_Name].[SubcategoryID] AS [SubcategoryID], 
+      [new_SubCategory_Name].[SubCategoryName] AS [SubCategoryName], 
+      [new_SubCategory_Name].[SubShortName] AS [SubShortName], 
+      [new_SubCategory_Name].[CategoryID] AS [CategoryID], 
+      [new_SubCategory_Name].[Sign] AS [Sign]
+      FROM [dbo].[new_SubCategory_Name] AS [new_SubCategory_Name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="new_Supplier_Name" EntityType="Web_InventoryModel.Store.new_Supplier_Name" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="new_Unit_Name" EntityType="Web_InventoryModel.Store.new_Unit_Name" store:Type="Tables" store:Schema="dbo" store:Name="new_Unit_Name">
+      <DefiningQuery>SELECT 
+      [new_Unit_Name].[UnitName] AS [UnitName]
+      FROM [dbo].[new_Unit_Name] AS [new_Unit_Name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sell_Iteam_Customer" EntityType="Web_InventoryModel.Store.Sell_Iteam_Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sell_Iteam_Main" EntityType="Web_InventoryModel.Store.Sell_Iteam_Main" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sell_Iteam_Sub" EntityType="Web_InventoryModel.Store.Sell_Iteam_Sub" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sys_User_Name" EntityType="Web_InventoryModel.Store.Sys_User_Name" store:Type="Tables" store:Schema="dbo" store:Name="Sys_User_Name">
+      <DefiningQuery>SELECT 
+      [Sys_User_Name].[CompID] AS [CompID], 
+      [Sys_User_Name].[UserID] AS [UserID], 
+      [Sys_User_Name].[UserName] AS [UserName], 
+      [Sys_User_Name].[UserPWord] AS [UserPWord], 
+      [Sys_User_Name].[EmpCode] AS [EmpCode], 
+      [Sys_User_Name].[UserFullName] AS [UserFullName], 
+      [Sys_User_Name].[Designation] AS [Designation], 
+      [Sys_User_Name].[Department] AS [Department], 
+      [Sys_User_Name].[Menu_id] AS [Menu_id], 
+      [Sys_User_Name].[Control_id] AS [Control_id], 
+      [Sys_User_Name].[Active] AS [Active], 
+      [Sys_User_Name].[mleft] AS [mleft], 
+      [Sys_User_Name].[Role] AS [Role]
+      FROM [dbo].[Sys_User_Name] AS [Sys_User_Name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sys_User_NameUp" EntityType="Web_InventoryModel.Store.Sys_User_NameUp" store:Type="Tables" store:Schema="dbo" store:Name="Sys_User_NameUp">
+      <DefiningQuery>SELECT 
+      [Sys_User_NameUp].[CompID] AS [CompID], 
+      [Sys_User_NameUp].[UserID] AS [UserID], 
+      [Sys_User_NameUp].[UserName] AS [UserName], 
+      [Sys_User_NameUp].[UserPWord] AS [UserPWord], 
+      [Sys_User_NameUp].[EmpCode] AS [EmpCode], 
+      [Sys_User_NameUp].[UserFullName] AS [UserFullName], 
+      [Sys_User_NameUp].[Designation] AS [Designation], 
+      [Sys_User_NameUp].[Department] AS [Department], 
+      [Sys_User_NameUp].[Menu_id] AS [Menu_id], 
+      [Sys_User_NameUp].[Control_id] AS [Control_id], 
+      [Sys_User_NameUp].[Active] AS [Active], 
+      [Sys_User_NameUp].[mleft] AS [mleft], 
+      [Sys_User_NameUp].[Role] AS [Role]
+      FROM [dbo].[Sys_User_NameUp] AS [Sys_User_NameUp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sysdiagrams" EntityType="Web_InventoryModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblMenu" EntityType="Web_InventoryModel.Store.tblMenu" store:Type="Tables" store:Schema="dbo" store:Name="tblMenu">
+      <DefiningQuery>SELECT 
+      [tblMenu].[ID] AS [ID], 
+      [tblMenu].[Main_Menu_Id] AS [Main_Menu_Id], 
+      [tblMenu].[Menu_Name] AS [Menu_Name], 
+      [tblMenu].[Menu_URL] AS [Menu_URL], 
+      [tblMenu].[Menu_Icon] AS [Menu_Icon], 
+      [tblMenu].[YsnActive] AS [YsnActive]
+      FROM [dbo].[tblMenu] AS [tblMenu]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblMenuWin" EntityType="Web_InventoryModel.Store.tblMenuWin" store:Type="Tables" store:Schema="dbo" store:Name="tblMenuWin">
+      <DefiningQuery>SELECT 
+      [tblMenuWin].[ID] AS [ID], 
+      [tblMenuWin].[CompID] AS [CompID], 
+      [tblMenuWin].[Menu_Name] AS [Menu_Name], 
+      [tblMenuWin].[Menu Id] AS [Menu Id], 
+      [tblMenuWin].[Form_Name] AS [Form_Name], 
+      [tblMenuWin].[FrmMenu_Name] AS [FrmMenu_Name], 
+      [tblMenuWin].[FrmForm_Name] AS [FrmForm_Name], 
+      [tblMenuWin].[YsnActive] AS [YsnActive]
+      FROM [dbo].[tblMenuWin] AS [tblMenuWin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblMenuWinBak2" EntityType="Web_InventoryModel.Store.tblMenuWinBak2" store:Type="Tables" store:Schema="dbo" store:Name="tblMenuWinBak2">
+      <DefiningQuery>SELECT 
+      [tblMenuWinBak2].[ID] AS [ID], 
+      [tblMenuWinBak2].[CompID] AS [CompID], 
+      [tblMenuWinBak2].[Menu_Name] AS [Menu_Name], 
+      [tblMenuWinBak2].[Menu Id] AS [Menu Id], 
+      [tblMenuWinBak2].[Form_Name] AS [Form_Name], 
+      [tblMenuWinBak2].[FrmMenu_Name] AS [FrmMenu_Name], 
+      [tblMenuWinBak2].[FrmForm_Name] AS [FrmForm_Name], 
+      [tblMenuWinBak2].[YsnActive] AS [YsnActive]
+      FROM [dbo].[tblMenuWinBak2] AS [tblMenuWinBak2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblRole" EntityType="Web_InventoryModel.Store.tblRole" store:Type="Tables" store:Schema="dbo" store:Name="tblRole">
+      <DefiningQuery>SELECT 
+      [tblRole].[ID] AS [ID], 
+      [tblRole].[Name] AS [Name], 
+      [tblRole].[Description] AS [Description], 
+      [tblRole].[Menus] AS [Menus], 
+      [tblRole].[YSNActive] AS [YSNActive], 
+      [tblRole].[Created_date] AS [Created_date], 
+      [tblRole].[Created_By] AS [Created_By], 
+      [tblRole].[Updated_date] AS [Updated_date], 
+      [tblRole].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblRole] AS [tblRole]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Company_Information' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="CompName" />
+      <PropertyRef Name="CompAdd" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="CompanyID" Type="tinyint" Nullable="false" />
+    <Property Name="CompName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompAdd" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CompTIN" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebAdd" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageLocation" Type="nvarchar" MaxLength="100" />
+    <Property Name="ServerName" Type="varchar" MaxLength="50" />
+    <Property Name="DBName" Type="varchar" MaxLength="50" />
+    <Property Name="DBPrefix" Type="varchar" MaxLength="50" />
+    <Property Name="ReportPath" Type="varchar" MaxLength="50" />
+    <Property Name="ComShortName" Type="nvarchar" MaxLength="8" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Invoice_Main' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Invoice_Main">
+    <Key>
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="InvoiceDate" />
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="InvID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceNo" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="Sign" Type="int" Nullable="false" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Iteam_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ModelID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="BuyPrice" Type="money" Nullable="false" />
+    <Property Name="TotalCostPrice" Type="money" Nullable="false" />
+    <Property Name="SellPrice" Type="money" Nullable="false" />
+    <Property Name="TotalSellPrice" Type="money" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="Invoice" Type="nchar" MaxLength="10" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="Sign" Type="int" Nullable="false" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Iteam_Order_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Iteam_Order_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SlNo" />
+      <PropertyRef Name="RequisitionQty" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="TotalPrice" />
+      <PropertyRef Name="Currency" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="varchar" MaxLength="10" />
+    <Property Name="ReqNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SlNo" Type="int" Nullable="false" />
+    <Property Name="IteamID" Type="varchar" MaxLength="50" />
+    <Property Name="iteamCode" Type="varchar" MaxLength="50" />
+    <Property Name="RequisitionQty" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="UnitPrice" Type="float" Nullable="false" />
+    <Property Name="TotalPrice" Type="float" Nullable="false" />
+    <Property Name="Currency" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="DeliveryDate" Type="smalldatetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Iteam_Requiition_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Iteam_Requiition_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SlNo" />
+      <PropertyRef Name="RequisitionQty" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="CurrStock" />
+      <PropertyRef Name="DeleteRow" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="varchar" MaxLength="10" />
+    <Property Name="SlNo" Type="int" Nullable="false" />
+    <Property Name="PRNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReqNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IteamID" Type="varchar" MaxLength="50" />
+    <Property Name="iteamCode" Type="varchar" MaxLength="50" />
+    <Property Name="RequisitionQty" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="CurrStock" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="RequisitionDate" Type="smalldatetime" />
+    <Property Name="DeliveryDate" Type="smalldatetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="DeleteRow" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="new_Category_Name">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_Country">
+    <Key>
+      <PropertyRef Name="CntrID" />
+      <PropertyRef Name="CntrName" />
+    </Key>
+    <Property Name="CntrID" Type="smallint" Nullable="false" />
+    <Property Name="CntrName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_Currency' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_Currency">
+    <Key>
+      <PropertyRef Name="CurrencyName" />
+    </Key>
+    <Property Name="CurrencyName" Type="nvarchar" Nullable="false" MaxLength="8" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_Customer_Name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_Customer_Name">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="code" />
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustID" Type="varchar" MaxLength="50" />
+    <Property Name="CustName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="7" />
+    <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_Department' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_Department">
+    <Key>
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="DeptID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DeptShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_Item_Name">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Name="itemID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="itemName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="new_ProductModel_Name">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ModelName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ItemID" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_SubCategory_Name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_SubCategory_Name">
+    <Key>
+      <PropertyRef Name="SubcategoryID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Name="SubcategoryID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SubShortName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="new_Supplier_Name">
+    <Key>
+      <PropertyRef Name="SuppID" />
+    </Key>
+    <Property Name="SuppID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SuppName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sign" Type="tinyint" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.new_Unit_Name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="new_Unit_Name">
+    <Key>
+      <PropertyRef Name="UnitName" />
+    </Key>
+    <Property Name="UnitName" Type="nvarchar" Nullable="false" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="Sell_Iteam_Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Sell_Iteam_Main">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+    <Property Name="InvoiceDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="TotalPrice" Type="float" Nullable="false" />
+    <Property Name="FinalPrice" Type="float" Nullable="false" />
+    <Property Name="TotalDiscount" Type="float" Nullable="false" />
+    <Property Name="TotalVat" Type="float" Nullable="false" />
+    <Property Name="Paid" Type="float" Nullable="false" />
+    <Property Name="Due" Type="float" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Sell_Iteam_Sub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="IteamID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitPrice" Type="float" Nullable="false" />
+    <Property Name="TotalUnitPrice" Type="float" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Sys_User_Name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Sys_User_Name">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPWord" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="mleft" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="CompID" Type="smallint" />
+    <Property Name="UserID" Type="smallint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="UserPWord" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="EmpCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="300" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Menu_id" Type="nvarchar" MaxLength="200" />
+    <Property Name="Control_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="tinyint" Nullable="false" />
+    <Property Name="mleft" Type="tinyint" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.Sys_User_NameUp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Sys_User_NameUp">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPWord" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="mleft" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="CompID" Type="smallint" />
+    <Property Name="UserID" Type="smallint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="UserPWord" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="EmpCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="300" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Menu_id" Type="nvarchar" MaxLength="200" />
+    <Property Name="Control_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="tinyint" Nullable="false" />
+    <Property Name="mleft" Type="tinyint" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.tblMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Main_Menu_Id" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_URL" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Icon" Type="varchar" MaxLength="50" />
+    <Property Name="YsnActive" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.tblMenuWin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblMenuWin">
+    <Key>
+      <PropertyRef Name="YsnActive" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="CompID" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Name" Type="varchar" MaxLength="150" />
+    <Property Name="Menu Id" Type="varchar" MaxLength="50" />
+    <Property Name="Form_Name" Type="varchar" MaxLength="150" />
+    <Property Name="FrmMenu_Name" Type="varchar" MaxLength="150" />
+    <Property Name="FrmForm_Name" Type="varchar" MaxLength="150" />
+    <Property Name="YsnActive" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.tblMenuWinBak2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblMenuWinBak2">
+    <Key>
+      <PropertyRef Name="YsnActive" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="CompID" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Name" Type="varchar" MaxLength="150" />
+    <Property Name="Menu Id" Type="varchar" MaxLength="50" />
+    <Property Name="Form_Name" Type="varchar" MaxLength="150" />
+    <Property Name="FrmMenu_Name" Type="varchar" MaxLength="150" />
+    <Property Name="FrmForm_Name" Type="varchar" MaxLength="150" />
+    <Property Name="YsnActive" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Web_Inventory.dbo.tblRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Menus" Type="nvarchar" MaxLength="500" />
+    <Property Name="YSNActive" Type="bit" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="prc_Category_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_Iteam_Information" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_IteamName_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_Max_InvoiceID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_Product_details_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_ProductModel_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_Supplier_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>
