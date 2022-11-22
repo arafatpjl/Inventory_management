@@ -1,0 +1,402 @@
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<style>
+     
+
+    .error {
+        color: red;
+    }
+
+    #wgtmsr
+    {
+      width:200px;   
+    }
+    .spinner {
+  width: 100%;
+}
+.spinner input {
+  text-align: left;
+}
+.spinner1 input {
+  text-align: left;
+}
+.spinner2 input {
+  text-align: left;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+    </style>
+
+@*<style>
+    input {
+        resize: horizontal;
+        width: 100px;
+    }
+     inputS {
+        resize: horizontal;
+        width: 50px;
+    }
+    
+    /*input:active {
+        width: auto;   
+    }
+    
+    input:focus {
+        min-width: 200px;
+    }*/
+</style>*@  
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="~/Content/custom-select-style.css">
+
+  <link rel="stylesheet" href="~/Content/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="~/Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+@*  <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />*@
+  @*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+
+@*<div ng-controller="InvoiceController"  class="wrapper" ng-cloak>*@
+<div ng-controller="InvoiceController"  class="wrapper" ng-cloak>
+  
+  <!-- Left side column. contains the logo and sidebar -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+       New Invoice Entry
+     
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+   <div class="row">
+      <div class="col">
+        <div class="box box-primary">
+          @*  <div class="box-header with-border">
+              <h3 class="box-title">Add New Invoice</h3>
+            </div>*@
+            <!-- /.box-header -->
+            <!-- form start -->
+				   
+				   <div class="box-body">
+					 <div class="row">
+                         <div class="col-md-3 col-sm-3">
+                             
+                             <div class="form-group">
+                                 <label>Customer name:</label>
+                                 <input type="text" class="form-control" name="uCustomer" ng-model="Invoice.CustomerName" placeholder="Enter Customer Name.." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uCustomer.$dirty || submitted) && f1.uCustomer.$error.required">Customer Name required!</span>
+                             </div>
+                             <div class="form-group">
+                                 <label>Product: </label>
+                                 <div custom-select="s as s.itemName for s in ItemList| filter: { itemName: $searchTerm }" ng-change="GetProductInfo()" name="uItemName" ng-model="ItemName" ng-class="submitted?'ng-dirty':''" required>
+                                     <div class="row" id="custom-select">
+                                         <div class="col-sm-12">{{s.itemName}}</div>
+                                     </div>
+                                 </div>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uItemName.$dirty || submitted) && f1.uItemName.$error.required">Product Name required!</span>
+                             </div>
+
+                         </div>
+                         <div class="col-md-3 col-sm-3">
+                             <div class="form-group">
+                                 <label>Contact No:</label>
+                                 <input type="text" class="form-control" name="uContactNo" onkeypress="return isNumberKey(event)" ng-model="Invoice.ContactNo" placeholder="Enter Contact No.." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uContactNo.$dirty || submitted) && f1.uContactNo.$error.required">Contact No required!</span>
+                             </div>
+
+                             <div class="form-group">
+                                 <label>Quantity:</label>
+                                 <input type="text" class="form-control" style="text-align:center;" onkeypress="return isNumberKey(event)" name="uQuantity" ng-model="Invoice.Quantity" ng-change="GetTotalprice()" placeholder="Enter Quantity .." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uQuantity.$dirty || submitted) && f1.uQuantity.$error.required">Quantity required!</span>
+                             </div>
+
+                         </div>
+                         <div class="col-md-3 col-sm-3">
+                             <div class="form-group">
+                                 <label>Address:</label>
+                                 <input type="text" class="form-control" name="uAddress" ng-model="Invoice.Address" placeholder="Enter Address.." ng-class="submitted?'ng-dirty':''" required>
+                                 @*<span class="error col-md-offset-2" ng-show="(f1.uAddress.$dirty || submitted) && f1.uAddress.$error.required">Address required!</span>*@
+                             </div>
+
+                             <div class="form-group">
+                                 <label>Unit price: </label>
+                                 <input type="text"  class="form-control" style="text-align:center;" name="uUnitPrice" onkeypress="return isNumberKey(event)" value="{{UnitPrice}}" ng-change="GetTotalprice()"  ng-model="Invoice.UnitPrice" ng-class="submitted?'ng-dirty':''" required >
+                                 <span class="error col-md-offset-2" ng-show="(f1.uUnitPrice.$dirty || submitted) && f1.uUnitPrice.$error.required">Unit price required!</span>
+                             </div>
+
+                         </div>
+                         <div class="col-md-3 col-sm-3">
+                             <div class="form-group">
+                                 <label>Invoice Date:</label>
+                                 <input type="text" class="form-control" name="uInvoiceDate" ng-model="Invoice.InvoiceDate" placeholder="Enter Invoice Date.." ng-class="submitted?'ng-dirty':''" required disabled>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uInvoiceDate.$dirty || submitted) && f1.uInvoiceDate.$error.required">Invoice Date required!</span>
+                             </div>
+
+                             <div class="form-group">
+                                 <label>Total price:</label>
+                                 <input type="text" class="form-control" onkeypress="return isNumberKey(event)" style="text-align:center;" name="uTotalPrice" ng-model="Invoice.TotalPrice" placeholder="Enter Total price.." ng-class="submitted?'ng-dirty':''" required >
+                                 <span class="error col-md-offset-2" ng-show="(f1.uTotalPrice.$dirty || submitted) && f1.uTotalPrice.$error.required">Total Price required!</span>
+                             </div>
+
+                         </div>
+				  </div>
+	               <div class="form-actions">
+				   <center>
+						@*<button type="submit" class="submit btn btn-primary" ng-click="Add()" value="Add">
+							Add <i class="icon-angle-right"></i>
+						</button>*@
+                       <button type="button" class="btn btn-primary" ng-click="Add()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add Data</button>
+				   </center>
+	               </div>
+				   </div>
+                       @*</form>*@
+
+          </div>
+     </div>
+   
+    </div>
+        <form  novalidate name="f1" ng-submit="SaveData(InvoiceUP)">
+        <!-- /.box -->
+    
+            @*{{InvoiceUP.length}}*@
+          <div class="box">
+            
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>SL No</th>
+                  <th>Item Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Total price</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  ng-repeat="r in InvoiceUP"> 
+
+               @*    <tr ng-repeat="r in ProductInfoList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">*@
+                  <td>{{ r.id }}</td>
+                   <td>{{ r.ItemName }}</td>
+                  <td>{{ r.Quantity }}</td>
+                  <td>{{ r.UnitPrice }}</td>
+                  <td>{{ r.TotalPrice }}</td>
+                    <td><a class="btn btn-xs delete-record" ng-click="Remove($index)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                   @* <td>
+           <i style="font-size:10px;color:#69a31e;cursor: pointer;"   ng-click="Remove($index)" class="glyphicon glyphicon-plus"></i>
+          </td>*@
+             
+                </tr>
+                 
+                </tbody>
+                <tfoot>
+              @*  <tr>
+                  <th>SL No</th>
+                  <th>Supplier Name</th>
+                  <th>Address</th>
+                  <th>Mail</th>
+                  <th>Action</th>
+                </tr>*@
+                </tfoot>
+                  <div>
+                     
+ 
+                  </div>
+                   
+              </table>
+            </div>
+            
+               
+
+           
+            <!-- /.box-body -->
+          </div>
+        
+      <!-- /.row -->
+      
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+         
+         <label>Description : </label>
+
+          <textarea class="form-control" ng-model="InvoiceUP.Description" rows="2" placeholder="Enter ..."></textarea>
+            <p class="lead"> <label>Payment Methods: </label></p>
+            
+          <img src="../../dist/img/credit/visa.png" alt="Visa">
+          <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
+          <img src="../../dist/img/credit/american-express.png" alt="American Express">
+          <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+    
+
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <th style="width:50%">Subtotal&nbsp;&nbsp;&nbsp;:</th>
+              
+                <td><input id="text" type="text"   name="uSubTotal" ng-model="InvoiceUP.Subtotal | number: 2" size="8" style="border: 1px solid #555;text-align:center;" disabled/></td>
+              </tr>
+                <tr>
+                <th>Discount &nbsp;&nbsp;: &nbsp;&nbsp;
+                    <input maxlength="2" size="2" type="text" onkeypress="return isNumberKey(event)" style="text-align:center;" ng-change="GetDiscountprice()" name="uVat" ng-model="InvoiceUP.DiscountPrice"  />&nbsp;%
+
+                </th>
+                <td><input id="text" type="text"   name="uSubTotal"  ng-model="InvoiceUP.TotalDiscount | number: 2" size="8" style="border: 1px solid #555;text-align:center;" disabled/></td>
+              </tr>
+              <tr>
+                <th>Vat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;
+                    <input maxlength="2" size="2" type="text" onkeypress="return isNumberKey(event)" name="uVat" ng-change="GetVatprice()" style="text-align:center;" ng-model="InvoiceUP.VatPrice"  />&nbsp;%
+
+                </th>
+                <td><input id="text" type="text"   name="uSubTotal"  ng-model="InvoiceUP.TotalVat | number: 2" size="8" style="border: 1px solid #555;text-align:center;" disabled/></td>
+              </tr>
+              
+              <tr>
+               <th>Grand Total &nbsp;: &nbsp;&nbsp;
+                <td><input id="text" type="text"   name="uSubTotal" ng-model="InvoiceUP.FinalPrice | number: 2" size="8" style="border: 1px solid #555;text-align:center;" disabled /> </td>
+              </tr>
+                <tr>
+               <th>Paid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;
+                <td><input id="text" type="text"   name="uSubTotal" ng-model="InvoiceUP.Paid" onkeypress="return isNumberKey(event)" ng-change="GetDueprice()" size="8" style="border: 1px solid #555;text-align:center;"  /> </td>
+              </tr>
+                <tr>
+               <th>Due &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;
+                <td><input id="text" type="text"   name="uSubTotal" ng-model="InvoiceUP.Due | number: 2" size="8" style="border: 1px solid #555;text-align:center;" disabled /> </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+           <div class="form-actions">
+				   <center>
+						@*<button type="submit" class="submit btn btn-primary ">
+							Submit <i class="icon-angle-right"></i>
+						</button>*@
+                       @*<button type="submit" class="submit btn btn-primary" ><i class="glyphicon glyphicon-plus"></i>&nbsp;Create Invoice</button>*@
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText}}" />
+				   </center>
+	               </div>
+        <!-- /.col -->
+      </div>
+        </form>
+    </section>
+    <!-- /.content -->
+  </div>
+          
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    
+    <strong>Copyright &copy; 2018 Arafat Hossan</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+
+     
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+  @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js"></script>
+
+<!-- jQuery -->
+<script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="~/Content/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="~/Content/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Content/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+<script>
+    (function ($) {
+    $('.spinner .btn:first-of-type').on('click', function () {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
+        //var textBox = document.getElementById("spinner");
+        alert('vxv');
+    });
+    $('.spinner .btn:last-of-type').on('click', function () {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
+    });
+
+    $('.spinner1 .btn:first-of-type').on('click', function () {
+        $('.spinner1 input').val(parseInt($('.spinner1 input').val(), 10) + 1);
+    });
+    $('.spinner1 .btn:last-of-type').on('click', function () {
+        $('.spinner1 input').val(parseInt($('.spinner1 input').val(), 10) - 1);
+    });
+    $('.spinner2 .btn:first-of-type').on('click', function () {
+        $('.spinner2 input').val(parseInt($('.spinner2 input').val(), 10) + 1);
+    });
+    $('.spinner2 .btn:last-of-type').on('click', function () {
+        $('.spinner2 input').val(parseInt($('.spinner2 input').val(), 10) - 1);
+    });
+})(jQuery);
+
+</script>
+<script>
+    function isNumberKey(evt) {
+	    var charCode = (evt.which) ? evt.which : evt.keyCode;
+	    if (charCode != 46 && charCode > 31
+        && (charCode < 48 || charCode > 57))
+	        return false;
+	    return true;
+	}
+
+
+    function isNumericKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+        && (charCode < 48 || charCode > 57))
+            return true;
+        return false;
+    }
+
+</script>
+@section Scripts{
+<script src="~/Scripts/Controllers/InvoiceController.js"></script>
+}
