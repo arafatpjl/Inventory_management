@@ -1,0 +1,415 @@
+@{
+    ViewBag.Title = "Product";
+}
+
+<style>
+     
+
+    .error {
+        color: red;
+    }
+
+    #wgtmsr
+    {
+      width:200px;   
+    }
+    .spinner {
+  width: 100%;
+}
+.spinner input {
+  text-align: left;
+}
+.spinner1 input {
+  text-align: left;
+}
+.spinner2 input {
+  text-align: left;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+    </style>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="~/Content/custom-select-style.css">
+
+  <link rel="stylesheet" href="~/Content/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="~/Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+@*  <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />*@
+  @*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+
+@*<div ng-controller="ProductDetailsInsertController"  class="wrapper" ng-cloak>*@
+<div ng-controller="ProductDetailsInsertController"  class="wrapper" ng-cloak>
+  
+  <!-- Left side column. contains the logo and sidebar -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+       New Product
+     
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+   <div class="row">
+      <div class="col">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add New Product</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+				   <form  novalidate name="f1" ng-submit="SaveData(ProductInsert)">
+				   <div class="box-body">
+					 <div class="row">
+                         <div class="col-md-6 col-sm-6">
+                             @*<div class="form-group">
+                                 <label>Product Name</label>
+                                 <div class="input-group mb-3">
+
+                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name">
+                                     <div class="input-group-addon">
+                                         <button type="button" data-toggle="modal" data-target="#ModelProduct">Add</button>
+                                     </div>
+                                 </div>
+                             </div>*@
+                             <div class="form-group">
+                                 <label>Category: </label>
+                                 <div custom-select="s as s.CategoryName for s in CategoryList| filter: { CategoryName: $searchTerm }" ng-change="GetCategoryID()" name="uCategoryName" ng-model="CategoryName" ng-class="submitted?'ng-dirty':''" required>
+                                     <div class="row" id="custom-select">
+                                         <div class="col-sm-12">{{s.CategoryName}}</div>
+                                     </div>
+                                 </div>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uCategoryName.$dirty || submitted) && f1.uCategoryName.$error.required">Category Name required!</span>
+                             </div>
+                              <div class="form-group">
+                                 <label>Product: </label>
+                                 <div custom-select="s as s.itemName for s in ProductnameList| filter: { itemName: $searchTerm }" ng-change="GetItemID()" name="uItemName" ng-model="ItemName" ng-class="submitted?'ng-dirty':''" required>
+                                     <div class="row" id="custom-select">
+                                         <div class="col-sm-12">{{s.itemName}}</div>
+                                     </div>
+                                 </div>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uItemName.$dirty || submitted) && f1.uItemName.$error.required">Product Name required!</span>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label>Supplier Name: </label>
+                                 <div custom-select="s as s.SuppName for s in SupplierNameList| filter: { SuppName: $searchTerm }" ng-change="GetSupplierID()" name="uItemName" ng-model="SuppName" ng-class="submitted?'ng-dirty':''" required>
+                                     <div class="row" id="custom-select">
+                                         <div class="col-sm-12">{{s.SuppName}}</div>
+                                     </div>
+                                 </div>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uItemName.$dirty || submitted) && f1.uItemName.$error.required">Supplier Name required!</span>
+                             </div>
+
+                             <div class="form-group">
+                                 <label>Product Model: </label>
+                                 <div class="input-group mb-3">
+                                     <div custom-select="s as s.ModelName for s in ProductModelList| filter: { ModelName: $searchTerm }" name="uModelName" ng-model="ModelName" ng-class="submitted?'ng-dirty':''" required>
+                                         <div class="row" id="custom-select">
+                                             <div class="col-sm-12">{{s.ModelName}}</div>
+                                         </div>
+                                     </div>
+                                     <div class="input-group-addon">
+                                         <button type="button" data-toggle="modal" data-target="#ModelProductContent">Add</button>
+                                     </div>
+                                     @*<span class="error col-md-offset-2" ng-show="(f1.uModelName.$dirty || submitted) && f1.uModelName.$error.required">Category Name required!</span>*@
+                                 </div>
+                             </div>
+
+                            @* <div class="form-group">
+                                 <label>Model Name</label>
+                                 <div class="input-group mb-3">
+
+                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Model Name">
+                                     <div class="input-group-addon">
+                                         <button type="button" data-toggle="modal" data-target="#ModelProductContent">Add</button>
+                                     </div>
+                                 </div>
+                             </div>*@
+                             <div class="form-group">
+                                 <label>Description</label>
+                                 <textarea class="form-control" rows="2" placeholder="Enter ..." ng-model="ProductInsert.Description"></textarea>
+                             </div>
+
+                         </div>
+                         <div class="col-md-6 col-sm-6">
+                             <div class="form-group">
+                                 <label>Quantity</label>
+                                 <input type="text" class="form-control" name="uQuantity" ng-model="ProductInsert.Quantity" placeholder="Enter Quantity.." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uQuantity.$dirty || submitted) && f1.uQuantity.$error.required">Quantity required!</span>
+                             </div>
+
+                             <div class="form-group">
+                                 <label>Buy price</label>
+                                 <input type="text" class="form-control" name="uBuyPrice" ng-model="ProductInsert.BuyPrice" placeholder="Enter Buy price.." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uBuyPrice.$dirty || submitted) && f1.uBuyPrice.$error.required">Buy price required!</span>
+                             </div>
+                             <div class="form-group">
+                                 <label>Sell Price</label>
+                                 <input type="text" class="form-control" name="uSellPrice" ng-model="ProductInsert.SellPrice" placeholder="Enter Sell Price.." ng-class="submitted?'ng-dirty':''" required>
+                                 <span class="error col-md-offset-2" ng-show="(f1.uSellPrice.$dirty || submitted) && f1.uSellPrice.$error.required">Sell Price required!</span>
+                             </div>
+                             <div class="form-group">
+                                 <label>Date:</label>
+
+                                 <div class="input-group date">
+                                     <div class="input-group-addon">
+                                         <i class="fa fa-calendar"></i>
+                                     </div>
+                                     <input type="text" class="form-control pull-right" id="datepicker" ng-model="ProductInsert.InvoiceDate"  date-picker-input>
+                                 </div>
+                                 <!-- /.input group -->
+                             </div>
+                             <div class="form-group">
+                                 <label>Invoice No</label>
+                                 <input type="text" class="form-control" name="uInvoice" ng-model="ProductInsert.Invoice" placeholder="Enter Invoice No.." ng-class="submitted?'ng-dirty':''" required>
+                                 @*<span class="error col-md-offset-2" ng-show="(f1.uProductName.$dirty || submitted) && f1.uProductName.$error.required">Product Name required!</span>*@
+                             </div>
+                             <div class="form-group">
+                                 <label for="exampleInputFile">Image</label>
+                                 <input type="file" id="exampleInputFile" ng-model="ProductInsert.Image">
+
+                                 <p class="help-block">Example block-level help text here.</p>
+                             </div>
+
+
+                         </div>
+				  </div>
+	               <div class="form-actions">
+				   <center>
+						<button type="submit" class="submit btn btn-primary ">
+							Submit <i class="icon-angle-right"></i>
+						</button>
+				   </center>
+	               </div>
+				   </div>
+                       </form>
+
+          </div>
+     </div>
+   
+    </div>
+
+        <!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">All Supplier Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                 @* <th>SL No</th>*@
+                  <th>Item Name</th>
+                  <th>Mpdel name</th>
+                  <th>Quantity</th>
+                  <th>Buy Price</th>
+                  <th>Sell Price</th>
+                   <th>Image</th>
+                  <th>Invoice </th>
+                  <th>Invoice Date</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="r in ProductInfoList |  orderBy: '-itemName' | limitTo:10:10*(page-1)"> 
+               @*    <tr ng-repeat="r in ProductInfoList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">*@
+                  <td>{{ r.itemName }}</td>
+                  <td>{{ r.ModelName }}</td>
+                  <td>{{ r.Quantity }}</td>
+                  <td>{{ r.BuyPrice }}</td>
+                  <td>{{ r.SellPrice }}</td>
+                  <td>{{ r.Image }}</td>
+                  <td>{{ r.Invoice }}</td>
+                  <td>{{r.InvoiceDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+                 
+                  <td>
+                       @*<a ng-class="r.SuppID" href="" data-toggle="modal" data-target="#ModelFabricMill" ng-click="FabricStatus(r)"><span class="badge"  style="background-color:#22849f">Details</span></a></td>*@
+                      <button ng-class="r.SuppID" href="" data-toggle="modal" data-target="#ModelProductInfoContent" ng-click="editSupplierStatus(r)" type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right: 5px;">
+                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-xs dt-delete" ng-click="DeleteProductInfo(r)">
+                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      </button>
+                  </td>
+                </tr>
+              
+                
+                
+                </tbody>
+                <tfoot>
+              @*  <tr>
+                  <th>SL No</th>
+                  <th>Supplier Name</th>
+                  <th>Address</th>
+                  <th>Mail</th>
+                  <th>Action</th>
+                </tr>*@
+                </tfoot>
+                  <div>
+                      View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+                    @*<uib-pagination class="pagination-sm pagination" total-items="SupplierList.length" ng-model="page"
+                    ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page="10"></uib-pagination>*@
+ <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+ 
+                  </div>
+                   
+              </table>
+            </div>
+            
+               
+
+           
+            <!-- /.box-body -->
+          </div>
+    </section>
+    <!-- /.content -->
+  </div>
+          
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    
+    <strong>Copyright &copy; 2018 Arafat Hossan</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+
+     <form novalidate name="f2" ng-submit="SaveModel(Model)" style="padding: 10px 10px 10px 30px;">
+                <div class="modal fade" id="ModelProductContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Product Model Add
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>Category: </label>
+                                        <div custom-select="s as s.CategoryName for s in CategoryList_M| filter: { CategoryName: $searchTerm }" ng-change="GetCategoryID_M()" name="uCategoryName" ng-model="M_CategoryName" ng-class="submitted?'ng-dirty':''" required>
+                                            <div class="row" id="custom-select">
+                                                <div class="col-sm-12">{{s.CategoryName}}</div>
+                                            </div>
+                                        </div>
+                                        <span class="error col-md-offset-2" ng-show="(f1.uCategoryName.$dirty || submitted) && f1.uCategoryName.$error.required">Category Name required!</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Product: </label>
+                                        <div custom-select="s as s.itemName for s in ProductnameList_M| filter: { itemName: $searchTerm }" ng-change="GetItemID_M()" name="uItemName" ng-model="M_ItemName" ng-class="submitted?'ng-dirty':''" required>
+                                            <div class="row" id="custom-select">
+                                                <div class="col-sm-12">{{s.itemName}}</div>
+                                            </div>
+                                        </div>
+                                        <span class="error col-md-offset-2" ng-show="(f1.uItemName.$dirty || submitted) && f1.uItemName.$error.required">Category Name required!</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Model Name</label>
+                                        <input type="text" class="form-control" name="uModel" ng-model="Model.ModelName" placeholder="Enter Model Name.." ng-class="submitted?'ng-dirty':''" required>
+                                        <span class="error col-md-offset-2" ng-show="(f2.uModel.$dirty || submitted) && f2.uModel.$error.required">Model Name required!</span>
+
+                                    </div>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText2}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+  @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js"></script>
+@*<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>*@
+<!-- jQuery -->
+<script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+@*<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>*@
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+@*<link href="~/Content/checkbox.css" rel="stylesheet" />*@
+<script src="~/Content/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="~/Content/bower_components/moment/min/moment.min.js"></script>
+<script src="~/Content/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="~/Content/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+<script>
+    (function ($) {
+    $('.spinner .btn:first-of-type').on('click', function () {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
+        //var textBox = document.getElementById("spinner");
+        alert('vxv');
+    });
+    $('.spinner .btn:last-of-type').on('click', function () {
+        $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
+    });
+
+    $('.spinner1 .btn:first-of-type').on('click', function () {
+        $('.spinner1 input').val(parseInt($('.spinner1 input').val(), 10) + 1);
+    });
+    $('.spinner1 .btn:last-of-type').on('click', function () {
+        $('.spinner1 input').val(parseInt($('.spinner1 input').val(), 10) - 1);
+    });
+    $('.spinner2 .btn:first-of-type').on('click', function () {
+        $('.spinner2 input').val(parseInt($('.spinner2 input').val(), 10) + 1);
+    });
+    $('.spinner2 .btn:last-of-type').on('click', function () {
+        $('.spinner2 input').val(parseInt($('.spinner2 input').val(), 10) - 1);
+    });
+})(jQuery);
+
+</script>
+@section Scripts{
+<script src="~/Scripts/Controllers/ProductDetailsInsertController.js"></script>
+}
