@@ -1,0 +1,344 @@
+@{
+    ViewBag.Title = "Supplier";
+    
+}
+
+<style>
+     
+
+    .error {
+        color: red;
+    }
+
+    #wgtmsr
+    {
+      width:200px;   
+    }
+
+    </style>
+
+
+
+
+
+<style>
+
+    /* Styles go here */
+.episode-list {
+	margin-left: 0px;
+	list-style: none;
+	padding-left: 0;
+}
+
+.episode-list-item {
+  position: relative;
+  float: left;
+  clear: left;
+}
+
+.episode-image {
+	width: 60px;
+	float: left;
+	padding: 1px 1px 1px 1px;
+  border: 1px solid #E8E8EE;
+  position: relative;
+  z-index: 2;
+}
+
+.play-button-svg {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 3px;
+	left: 10px;
+}
+
+.play-button-svg.ng-enter, .play-button-svg.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+}
+
+.play-button-svg.ng-enter, .play-button-svg.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.play-button-svg.ng-leave, .play-button-svg.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.level1 {
+	z-index: 1;
+}
+
+.level3 {
+	z-index: 3;
+}
+
+.pause-button-svg {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 3px;
+	left: 10px;
+}
+
+</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+@*<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />*@
+
+
+<div ng-controller="DataController"  class="wrapper" ng-cloak>
+
+  
+  <!-- Left side column. contains the logo and sidebar -->
+  
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        New Supplier
+       
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Add New Supplier</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form  novalidate name="f1" ng-submit="SaveData(Supplier)">
+                        <div class="box-body">
+                            <div class="d-flex justify-content-center align-items-center container ">
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <div class="form-group">
+                                            <label >Supplier Name</label>
+                                            <input type="text" class="form-control" name="uSupplierName" ng-model="Supplier.SuppName"  placeholder="Enter Supplier Name.." ng-class="submitted?'ng-dirty':''" required>
+                                             <span class="error col-md-offset-2" ng-show="(f1.uSupplierName.$dirty || submitted) && f1.uSupplierName.$error.required">Supplier Name required!</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Address</label>
+                                             <input type="text" class="form-control" name="uAddress" ng-model="Supplier.Address"  placeholder="Enter Address.." ng-class="submitted?'ng-dirty':''" required>
+                                             <span class="error col-md-offset-2" ng-show="(f1.uAddress.$dirty || submitted) && f1.uAddress.$error.required">Address required!</span>
+                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Contact No</label>
+                                           <input type="text" class="form-control" name="uContact" ng-model="Supplier.Contact"  placeholder="Enter Contact.." >
+                                             @*<span class="error col-md-offset-2" ng-show="(f1.uContact.$dirty || submitted) && f1.uContact.$error.required">Contact required!</span>*@
+                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email ID</label>
+                                            <input type="email" class="form-control" name="uEmail" ng-model="Supplier.Email" ng-pattern="/^[A-Za-z0-9._%+-]+"  placeholder="Enter Email.." >
+                                             @*<span class="error col-md-offset-2" ng-show="(f1.uEmail.$dirty || submitted) && f1.uEmail.$error.required">Email required!</span>*@
+                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Reamrks</label>
+                                            <textarea class="form-control"  ng-model="Supplier.Remarks" rows="2" placeholder="Enter ..."></textarea>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-actions">
+                                <center>
+						<button type="submit" class="submit btn btn-primary ">
+							Submit <i class="icon-angle-right"></i>
+						</button>
+				   </center>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                    <!-- /.box-body -->
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">All Supplier Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>SL No</th>
+                  <th>Supplier Name</th>
+                  <th>Address</th>
+                  <th>Mail</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+              @*  <tr ng-repeat="r in SupplierList |  orderBy: '-SuppID' | limitTo:10:10*(page-1)"> *@
+                    <tr ng-repeat="r in SupplierList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                  <td>{{ r.SuppID }}</td>
+                  <td>{{ r.SuppName }}</td>
+                  <td>{{ r.Address }}</td>
+                  <td> {{ r.Email }}</td>
+                  <td>
+                       @*<a ng-class="r.SuppID" href="" data-toggle="modal" data-target="#ModelFabricMill" ng-click="FabricStatus(r)"><span class="badge"  style="background-color:#22849f">Details</span></a></td>*@
+                      <button ng-class="r.SuppID" href="" data-toggle="modal" data-target="#ModelSupplierContent" ng-click="editSupplierStatus(r)" type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right: 5px;">
+                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-xs dt-delete" ng-click="DeleteSupplier(r)">
+                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      </button>
+                  </td>
+                </tr>
+              
+                
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>SL No</th>
+                  <th>Supplier Name</th>
+                  <th>Address</th>
+                  <th>Mail</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+                  <div>
+                      View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+                    @*<uib-pagination class="pagination-sm pagination" total-items="SupplierList.length" ng-model="page"
+                    ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page="10"></uib-pagination>*@
+ <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+ 
+                  </div>
+                   
+              </table>
+            </div>
+            
+               
+
+           
+            <!-- /.box-body -->
+          </div>
+        <!-- /.box -->
+    </section>
+           <form novalidate name="f2" ng-submit="SupplierUpdate(SupplierUp)" style="padding: 10px 10px 10px 30px;">
+                <div class="modal fade" id="ModelSupplierContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Supplier Name Update
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>Supplier Name</label>
+                                        <input type="text" class="form-control" name="uSupplierName" ng-model="SupplierUp.SuppName" placeholder="Enter Supplier Name.." ng-class="submitted?'ng-dirty':''" required>
+                                        <span class="error col-md-offset-2" ng-show="(f2.uSupplierName.$dirty || submitted) && f2.uSupplierName.$error.required">Supplier Name required!</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Address</label>
+                                        <input type="text" class="form-control" name="uAddress" ng-model="SupplierUp.Address" placeholder="Enter Address.." ng-class="submitted?'ng-dirty':''" required>
+                                        <span class="error col-md-offset-2" ng-show="(f2.uAddress.$dirty || submitted) && f2.uAddress.$error.required">Address required!</span>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Contact No</label>
+                                        <input type="text" class="form-control" name="uContact" ng-model="SupplierUp.Contact" placeholder="Enter Contact..">
+                                        @*<span class="error col-md-offset-2" ng-show="(f1.uContact.$dirty || submitted) && f1.uContact.$error.required">Contact required!</span>*@
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email ID</label>
+                                        <input type="email" class="form-control" name="uEmail" ng-model="SupplierUp.Email" ng-pattern="/^[A-Za-z0-9._%+-]+" placeholder="Enter Email..">
+                                        @*<span class="error col-md-offset-2" ng-show="(f1.uEmail.$dirty || submitted) && f1.uEmail.$error.required">Email required!</span>*@
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Reamrks</label>
+                                        <textarea class="form-control" ng-model="SupplierUp.Remarks" rows="2" placeholder="Enter ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText2}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+      <footer class="main-footer">
+    
+    <strong>Copyright &copy; 2018 Arafat Hossan</strong> All rights
+    reserved.
+  </footer>
+
+
+
+</div>
+<!-- ./wrapper -->
+
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js"></script>
+@*<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>*@
+<!-- jQuery -->
+<script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+@*<script>
+
+    var myModule = angular.module('myModule', ["ui.bootstrap"]);
+
+    myModule.controller('myController', function ($scope) {
+
+        $scope.page = 1;
+
+       
+
+        $scope.pageChanged = function () {
+            var startPos = ($scope.page - 1) * 3;
+            //$scope.displayItems = $scope.totalItems.slice(startPos, startPos + 3);
+            console.log($scope.page);
+        };
+
+    });
+
+</script>*@
+
+@section Scripts{
+<script src="~/Scripts/Controllers/DataController.js"></script>
+}
