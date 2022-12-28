@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="895abbaef6314983b18284f6f2e055b4" Name="Diagram1">
+        <EntityTypeShape EntityType="Web_InventoryModel.Company_Information" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Iteam_Order_Info" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Iteam_Requiition_Info" Width="1.5" PointX="0.625" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Country" Width="1.5" PointX="4.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Currency" Width="1.5" PointX="4.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Customer_Name" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Department" Width="1.5" PointX="4.125" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_SubCategory_Name" Width="1.5" PointX="7.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Unit_Name" Width="1.5" PointX="7.375" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Sys_User_Name" Width="1.5" PointX="6.125" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Sys_User_NameUp" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.sysdiagram" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.tblMenu" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.tblMenuWin" Width="1.5" PointX="2.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.tblMenuWinBak2" Width="1.5" PointX="4.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.tblRole" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Supplier_Name" Width="1.5" PointX="6.25" PointY="9" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Category_Name" Width="1.5" PointX="6.375" PointY="12.625" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_Item_Name" Width="1.5" PointX="7.875" PointY="4.5" />
+        <EntityTypeShape EntityType="Web_InventoryModel.new_ProductModel_Name" Width="1.5" PointX="4.375" PointY="6.125" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Iteam_Information" Width="1.5" PointX="4.5" PointY="12.5" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Invoice_Main" Width="1.5" PointX="2.5" PointY="5.875" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Sell_Iteam_Customer" Width="1.5" PointX="0.5" PointY="10.625" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Sell_Iteam_Main" Width="1.5" PointX="10.813688640861628" PointY="7.6991849130481409" />
+        <EntityTypeShape EntityType="Web_InventoryModel.Sell_Iteam_Sub" Width="1.5" PointX="4.34451863185713" PointY="30.3055574141003" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
